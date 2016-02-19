@@ -28,8 +28,8 @@ winning = {("Scissors", "Paper"), ("Paper", "Rock"), ("Rock", "Scissors")}
 while (roundNum < 11):
     player_input = raw_input("What's your choice (Scissors, Paper, or Rock)")
     if player_input not in possible_choices:
-        print("Not valid choice.")
-        raw_input()
+        print("Not a valid choice.")
+        player_input = raw_input("What's your choice (Scissors, Paper, or Rock)")
 
 # using user input to update conditional probability during each round
 # this increases the chance of the bot winning by 'teaching it' to choose
