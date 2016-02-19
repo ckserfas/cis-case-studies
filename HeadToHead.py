@@ -45,7 +45,11 @@ def rps1(str):
 
     return smart_choice
 
-#def rps2(str):
+def rps2(str):
+    # currntly random selection generated for each round
+    # does not attempt to 'learn' from its opponent
+    my_choice = random.choice(possible_choices)
+    return my_choice
 
 while (roundNum < 12):
     if random_pick == 1:
@@ -78,10 +82,10 @@ while (roundNum < 12):
     else:
         bot1_score += 1
         print("Bot1 picked %s and Bot2 picked %s, Bot1 wins!" % (bot1_choice, bot2_choice))
-        print("Bot: %d, You: %d" % (bot1_score, bot2_score))
+        print("Bot1: %d, Bot2: %d" % (bot1_score, bot2_score))
         #print("%s probability: %f" %(smart_choice, max_prob))
 
     roundNum += 1
 
-#print ("Good Game!\nTotal Rounds: %d \nFinal Score: Bot1 %d | Bot2 %d | Ties %d" % (roundNum-1, bot1_score, bot2_score, ties))
+print ("Good Game!\nTotal Rounds: %d \nFinal Score: Bot1 %d | Bot2 %d | Ties %d" % (roundNum-1, bot1_score, bot2_score, ties))
 exit(0)
