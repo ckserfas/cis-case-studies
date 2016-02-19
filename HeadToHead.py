@@ -1,3 +1,5 @@
+# authors: Cristi Serfass | Jeremy Dennen
+# email: ckserfas@syr.edu | jcdennen@syr.edu
 
 import random
 from sys import exit
@@ -15,10 +17,10 @@ random_choice = random.choice(possible_choices)
 random_pick = random.randint(1,2)
 
 def rps1(str):
-    
+
     if roundNum == 1:
         return str
-        
+
     uR = 0.0
     uP = 0.0
     uS = 0.0
