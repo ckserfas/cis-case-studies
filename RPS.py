@@ -4,16 +4,12 @@ from sys import exit
 
 #variable initializations
 roundNum = 1
-max_prob = 0.0
 user_score = 0
 bot_score = 0
 ties = 0
 uR = 0.0
 uP = 0.0
 uS = 0.0
-pR = 0.0
-pP = 0.0
-pS = 0.0
 
 
 # defining bot choices
