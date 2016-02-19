@@ -1,5 +1,8 @@
+#imports
 import random
 from sys import exit
+
+#variable initializations
 roundNum = 1
 max_prob = 0.0
 user_score = 0
@@ -13,7 +16,7 @@ pP = 0.0
 pS = 0.0
 
 
-# random.choice is a convenient method
+# defining bot choices
 possible_choices = ["Scissors", "Paper", "Rock"]
 random_choice = random.choice(possible_choices)
 smart_choice = "tbd"
@@ -21,11 +24,16 @@ smart_choice = "tbd"
 # winning set
 winning = {("Scissors", "Paper"), ("Paper", "Rock"), ("Rock", "Scissors")}
 
+# game currently limited to 11 rounds; odd number to ensure a winner
 while (roundNum < 11):
     player_input = raw_input("What's your choice (Scissors, Paper, or Rock)")
     if player_input not in possible_choices:
         print("Not valid choice.")
         raw_input()
+
+# using user input to update conditional probability during each round
+# this increases the chance of the bot winning by 'teaching it' to choose
+# whichever throw would beat the throw the user is most likely to make
 
     if player_input == "Rock":
         uR += 1
@@ -37,6 +45,8 @@ while (roundNum < 11):
         uS += 1
         pS = float(uS/roundNum)
 
+# using probabilities calculated previously to assign the bot's choice
+
     if roundNum > 1:
         max_prob = max(pR, pP, pS)
         if max_prob == pR:
@@ -47,6 +57,8 @@ while (roundNum < 11):
             smart_choice = "Rock"
     else:
         smart_choice = random_choice
+
+# updating score & round count
 
     if player_input == smart_choice:
         ties += 1
@@ -69,5 +81,6 @@ while (roundNum < 11):
         print("Bot: %d, You: %d" % (bot_score, user_score))
         #print("%s probability: %f" %(smart_choice, max_prob))
 
+# after 11 rounds gived final score then exits w/ a sys call
 print ("Good Game!\nTotal Rounds: %d \nFinal Score: Bot %d | You %d | Ties %d" % (roundNum, bot_score, user_score, ties))
 exit(0)
